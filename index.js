@@ -1,8 +1,3 @@
-// 아이디 이메일 형식, 아이디 중복 체크
-// 비밀번호 체크
-// 닉네임 중복 체크
-
-
 const signUpBtn = document.querySelector('button');
 const id = document.querySelector('#input-id');
 const pwd = document.querySelector('#input-password');
@@ -10,11 +5,6 @@ const pwdReconfirm = document.querySelector('#input-password-reconfirm');
 const nickname = document.querySelector('#input-nickname');
 const email = document.querySelector('#input-email');
 
-/*
-회원이 없을때 -> 회원에 아무값이나 넣고 일단 로컬저장소에 회원 저장소 생성
-회원가입 페이지 열면 회원저장소가 있든 없든 일단 불러와야해 JSON.parse로 변환해서 가져와야지
-
-*/
 // 회원이 0명, 즉 로컬저장소에 아직 회원저장공간이 없는경우에는 아무값이나 넣어서 만든다.
 if(localStorage.getItem('users') === null) {
     let arr = [];
@@ -38,28 +28,6 @@ class User {
         this.pwd = pwd;
         this.nickname = nickname;
         this.email = email;
-        this.stats = {
-            estimatedTime: 0,
-            taskToComplete: 0,
-            completedTime: 0,
-            completedTask: 0
-        };
-        this.total
-        this.alarm = {
-            pomodoro: "",
-            break: ""
-        };
-        this.sumAllTimes = ""
-        this.tasks = [
-            {
-                name: "",
-                time: "",
-                runTime: { current: "", max: "" },
-                key: "",
-                complete: "",
-            }
-        ];
-        this.breakTime = "";
     }
 }
 

@@ -8,6 +8,7 @@
     --white2 : #FFFFFFB3;
     --gray : #aaa;
 }
+
 * {
     box-sizing: border-box;
 }
@@ -15,32 +16,50 @@ body {
     background-color: #f5f6f7;
 }
 .hidden {
-    /* opacity: 0;
-    pointer-events: none; */
     display: none !important;
 }
 
 /* wrapper */
 .wrapper {
     width: 500px;
-    margin: auto;
+    margin: 1rem auto;
+
+    /* 뉴모피즘 디자인을 적용한 코드 */
+    border-radius: 30px;
+    background: #f5f6f7;
+    box-shadow:  50px 50px 100px #bfc0c1,
+                -50px -50px 100px #ffffff;
 }
 
 /* header */
 header {
-    width: auto;
-    margin: 4rem 0 0;
+    padding: 0.5rem 0;
     text-align: center;
+    border-bottom: 1px solid #ddd;
 }
 header span {
-    color: #D95550;
-    font-size: 3.5rem;
-    font-weight: 600;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 /* main */
 main {
-    margin: 2rem 1rem;
+    margin: 3rem 1rem;
+}
+main .head-container {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+main .head-container div:nth-child(2) {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    padding-bottom: 1rem;
+}
+main .head-container .border-radius {
+    border: 2px solid black;
+    border-radius: 10px;
 }
 main .input-container {
     margin-top: 0.5rem;
@@ -55,11 +74,18 @@ main label {
 main label + input {
     width: 100%;
     outline: none;
+    /* outline: 3px solid red; */
+    /* outline-style: blue; */
     padding: 15px;
     border: 1px solid #aaa;
     margin-top: 0.5rem;
     cursor: pointer;
 }
+main label + input:focus {
+    outline: 1px outset rgba(170, 50, 220, .6);
+    /* border-radius: 2rem; */
+}
+
 main .warning {
     display: block;
     color: red;
