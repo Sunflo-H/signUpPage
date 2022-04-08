@@ -27,7 +27,6 @@ body {
     height: 600px;
     margin: 2rem auto;
     overflow: hidden;
-
     /* 뉴모피즘 디자인을 적용한 코드 */
     border-radius: 30px;
     background: #dbdbdc;
@@ -53,18 +52,15 @@ main {
 main .input-containers {
     margin-top: 20px;
 }
-
 main .input-containers .input-container {
     width: 100%;
 }
-
 main label {
     display: inline-block;
     font-weight: 600;
     cursor: pointer;
     margin-top: 12px;
 }
-
 main label+input {
     width: 100%;
     padding: 10px;
@@ -88,11 +84,10 @@ main .warning-container {
     margin-top: 4px;
     margin-left: 8px;
 }
-
 main .warning {
     display: block;
     color: red;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
 }
 
 main button {
@@ -102,18 +97,21 @@ main button {
     width: 120px;
     padding: 10px;
     color: #ffffffe5;
+    font-weight: bold;
     cursor: pointer;
     
     border: none;
     background: #7BCEEF;
     border-radius: 30px;
-    box-shadow: 1px 1px 3px 1px #69afcb
-    , -1px -1px 3px 1px #8dedff;
+    box-shadow: 1px 1px 3px 1px #69afcb, -1px -1px 3px 1px #8dedff;
 }
 
-main button a {
-    color: #ffffffe5;
-    font-size: 1.1rem;
-    cursor: pointer;
-    text-decoration: none;
+@media screen and (max-width:750px){
+    .wrapper {
+        width: 375px;
+    }
+
+    main button {
+        width: 100%;
+    }
 }
