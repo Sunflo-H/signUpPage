@@ -8,7 +8,7 @@
     <title>회원가입</title>
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./index.css">
-    <script src="./index.js" defer></script>
+    <!-- <script src="./index.js" defer></script> -->
 </head>
 
 <body>
@@ -17,37 +17,29 @@
             <span>Welcome!</span>
         </header>
         <main>
-            <div class="head-container">
-                <div>회원 가입</div>
-                <div>기본 정보 입력</div>
-                <div class="border-radius"></div>
+            <div class="input-containers">
+                <div class="input-container">
+                    <label for="input-id">Username</label>
+                    <input type="text" id="input-id" name="id" placeholder="Enter username">
+                    <div class="warning-container"><span class="warning"> Username already exists.</span></div>
+                </div>
+                <div class="input-container">
+                    <label for="input-email">Email</label>
+                    <input type="email" id="input-email" placeholder="Enter Email">
+                    <div class="warning-container"><span class="warning"> Email is not valid</span></div>
+                </div>
+                <div class="input-container">
+                    <label for="input-password">Password</label>
+                    <input type="password" id="input-password" placeholder="Enter password" >
+                    <div class="warning-container"><span class="warning"></span></div>
+                </div>
+                <div class="input-container">
+                    <label for="input-password-again">Confirm Password</label>
+                    <input type="password" id="input-password-again" placeholder="Enter password again">
+                    <div class="warning-container"><span class="warning">Password doesn't match</span></div>
+                </div>
             </div>
-            <div class="input-container">
-                <label for="input-id">아이디</label>
-                <input type="text" id="input-id" name="id">
-                <span class="warning hidden"> 아이디를 입력해주세요</span>
-            </div>
-            <div class="input-container">
-                <label for="input-password">비밀번호</label>
-                <input type="password" id="input-password" name="password">
-                <span class="warning hidden"> 비밀번호를 입력해주세요</span>
-            </div>
-            <div class="input-container">
-                <label for="input-password-reconfirm">비밀번호 재확인</label>
-                <input type="password" id="input-password-reconfirm" name="password-reconfirm">
-                <span class="warning hidden"> 비밀번호가 다릅니다.</span>
-            </div>
-            <div class="input-container">
-                <label for="input-nickname">닉네임</label>
-                <input type="text" id="input-nickname" name="nickname">
-                <span class="warning hidden"> 닉네임을 입력해주세요</span>
-            </div>
-            <div class="input-container">
-                <label for="input-email">이메일</label>
-                <input type="email" id="input-email" name="email">
-                <span class="warning hidden"> 이메일을 입력해주세요</span>
-            </div>
-            <button>가입하기</button>
+            <button>Submit</button>
         </main>
     </div>
 </body>

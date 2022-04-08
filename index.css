@@ -1,20 +1,22 @@
 :root {
-    --pomodoro-background : #D95550;
-    --container-background : #ffffff1a;
-    --break-time-background : #457ca3;
-    --redbrown : #541c1f;
-    --black : #0000001A;
-    --white1 : #FFFFFF;
-    --white2 : #FFFFFFB3;
-    --gray : #aaa;
+    --pomodoro-background: #D95550;
+    --container-background: #ffffff1a;
+    --break-time-background: #457ca3;
+    --redbrown: #541c1f;
+    --black: #0000001A;
+    --white1: #FFFFFF;
+    --white2: #FFFFFFB3;
+    --gray: #aaa;
 }
 
 * {
     box-sizing: border-box;
 }
+
 body {
-    background-color: #f5f6f7;
+    background: #dbdbdc;
 }
+
 .hidden {
     display: none !important;
 }
@@ -22,92 +24,96 @@ body {
 /* wrapper */
 .wrapper {
     width: 500px;
-    margin: 1rem auto;
+    height: 600px;
+    margin: 2rem auto;
+    overflow: hidden;
 
     /* 뉴모피즘 디자인을 적용한 코드 */
     border-radius: 30px;
-    background: #f5f6f7;
-    box-shadow:  50px 50px 100px #bfc0c1,
-                -50px -50px 100px #ffffff;
+    background: #dbdbdc;
+    box-shadow: 20px 20px 60px #bababb,
+        -20px -20px 60px #fcfcfd;
 }
 
 /* header */
 header {
-    padding: 0.5rem 0;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
+    margin: 6rem 0 0;
 }
+
 header span {
-    color: black;
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 2rem;
+    margin-left: 40px;
 }
 
 /* main */
 main {
-    margin: 3rem 1rem;
+    margin: 0 40px;
 }
-main .head-container {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
+
+main .input-containers {
+    margin-top: 20px;
 }
-main .head-container div:nth-child(2) {
-    margin-top: 2rem;
-    font-size: 1.2rem;
-    padding-bottom: 1rem;
+
+main .input-containers .input-container {
+    width: 100%;
 }
-main .head-container .border-radius {
-    border: 2px solid black;
-    border-radius: 10px;
-}
-main .input-container {
-    margin-top: 0.5rem;
-    height: 85px;
-}
+
 main label {
-    display: block;
+    display: inline-block;
     font-weight: 600;
     cursor: pointer;
-    margin-top: 1.5rem;
+    margin-top: 12px;
 }
-main label + input {
+
+main label+input {
     width: 100%;
-    outline: none;
-    /* outline: 3px solid red; */
-    /* outline-style: blue; */
-    padding: 15px;
-    border: 1px solid #aaa;
+    padding: 10px;
     margin-top: 0.5rem;
     cursor: pointer;
+    outline: none;
+
+    /* 뉴모피즘 디자인을 적용한 코드 */
+    border: none;
+    border-radius: 10px;
+    background: #dbdbdc;
+    box-shadow: inset 1px 1px 10px #c4c4c4, inset -1px -1px 5px #fff
 }
-main label + input:focus {
-    outline: 1px outset rgba(170, 50, 220, .6);
+
+main label+input:focus {
+    /* outline: 1px outset #ACF3AE; */
     /* border-radius: 2rem; */
+}
+
+main .warning-container {
+    margin-top: 4px;
+    margin-left: 8px;
 }
 
 main .warning {
     display: block;
     color: red;
     font-size: 0.8rem;
-    margin-top: 8px;
 }
 
-
-/* main input[type=submit], */
-main button{
+main button {
+    display: block;
     margin-top: 2rem;
-    width: 100%;
+    margin-left: auto;
+    width: 120px;
     padding: 10px;
-    border: none;
-    background-color: #D95550;    
     color: #ffffffe5;
     cursor: pointer;
+    
+    border: none;
+    background: #7BCEEF;
+    border-radius: 30px;
+    box-shadow: 1px 1px 3px 1px #69afcb
+    , -1px -1px 3px 1px #8dedff;
 }
+
 main button a {
     color: #ffffffe5;
     font-size: 1.1rem;
     cursor: pointer;
     text-decoration: none;
 }
-

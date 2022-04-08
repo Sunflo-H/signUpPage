@@ -1,7 +1,7 @@
 const signUpBtn = document.querySelector('button');
 const id = document.querySelector('#input-id');
 const pwd = document.querySelector('#input-password');
-const pwdReconfirm = document.querySelector('#input-password-reconfirm');
+const pwdAgain = document.querySelector('#input-password-again');
 const nickname = document.querySelector('#input-nickname');
 const email = document.querySelector('#input-email');
 
@@ -17,7 +17,7 @@ console.log(users === []);
 let check = {
     id: false,
     pwd: false,
-    pwdReconfirm: false,
+    pwdAgain: false,
     nickname: false,
     email: false
 };
@@ -35,16 +35,16 @@ class User {
 function passCheck(item) {
     let text;
     switch (item) {
-        case id: text = "아이디"; break;
+        case id: text = "username"; break;
         case nickname: text = "닉네임"; break;
         case email: text = "이메일"; break;
     }
     if (item.value === "") {
         item.nextElementSibling.classList.remove('hidden');
         if (text === id) {
-            item.nextElementSibling.innerText = `${text}를 입력해주세요`
+            item.nextElementSibling.innerText = `check ${text}`
         } else {
-            item.nextElementSibling.innerText = `${text}을 입력해주세요`
+            item.nextElementSibling.innerText = `check ${text}`
         }
         pass = false;
     } else {
@@ -83,7 +83,7 @@ function passCheck(item) {
 }
 
 signUpBtn.addEventListener('click', e => {
-    if (check.id && check.pwd && check.pwdReconfirm && check.nickname && check.email) {
+    if (check.id && check.pwd && check.pwdAgain && check.nickname && check.email) {
         let user = new User(id.value, pwd.value, nickname.value, email.value);
         // if (users === undefined) {
         //     localStorage.setItem('users', JSON.stringify([]));
@@ -117,13 +117,13 @@ pwd.addEventListener('blur', e => {
     }
 });
 
-pwdReconfirm.addEventListener('blur', e => {
-    if (pwd.value !== pwdReconfirm.value) {
-        pwdReconfirm.nextElementSibling.classList.remove('hidden');
-        check.pwdReconfirm = false;
+pwdAgain.addEventListener('blur', e => {
+    if (pwd.value !== pwdAgain.value) {
+        pwdAgain.nextElementSibling.classList.remove('hidden');
+        check.pwdAgain = false;
     } else {
-        pwdReconfirm.nextElementSibling.classList.add('hidden');
-        check.pwdReconfirm = true;
+        pwdAgain.nextElementSibling.classList.add('hidden');
+        check.pwdAgain = true;
     }
 });
 
