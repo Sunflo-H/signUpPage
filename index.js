@@ -1,9 +1,8 @@
-const signUpBtn = document.querySelector('button');
-const id = document.querySelector('#input-id');
+const submitBtn = document.querySelector('button');
+const username = document.querySelector('#input-id');
+const email = document.querySelector('#input-email');
 const pwd = document.querySelector('#input-password');
 const pwdAgain = document.querySelector('#input-password-again');
-const nickname = document.querySelector('#input-nickname');
-const email = document.querySelector('#input-email');
 
 // 회원이 0명, 즉 로컬저장소에 아직 회원저장공간이 없는경우에는 아무값이나 넣어서 만든다.
 if(localStorage.getItem('users') === null) {
@@ -29,6 +28,10 @@ class User {
         this.nickname = nickname;
         this.email = email;
     }
+}
+
+function outlineColorChange() {
+    
 }
 
 // 공백일때 "입력해주세요" // 공백아니면 -> 중복일때 경고, 중복아닐때 통과
