@@ -132,5 +132,23 @@ submitBtn.addEventListener('click', e => {
         const user = new User(username.value, email.value, pwd.value);
         users.push(user);
         localStorage.setItem('users', JSON.stringify(users));
+        toast(`${username.value}님 가입을 환영합니다.`);
     }
 });
+
+
+let removeToast;
+
+function toast(string) {
+    const toast = document.getElementById("toast");
+
+    toast.classList.contains("show") ?
+        (clearTimeout(removeToast), removeToast = setTimeout(function () {
+            document.getElementById("toast").classList.remove("show")
+        }, 2000)) :
+        removeToast = setTimeout(function () {
+            document.getElementById("toast").classList.remove("show")
+        }, 2000)
+    toast.classList.add("show"),
+        toast.innerText = string
+}
