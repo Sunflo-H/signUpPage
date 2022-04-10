@@ -124,10 +124,13 @@ submitBtn.addEventListener('click', e => {
     emailCheck();
     pwdCheck();
     pwdAgainCheck();
-    console.log(inputs);
     let arr = [...inputs];
-    console.log(arr);
     let check = arr.find(input => input.classList.contains('non-pass'));
-    if(check === undefined) alert(`${username.value}님 가입되었습니다.`);
+    console.log(pwd.value);
+    console.log(pwdAgain.value);
+    if(check === undefined) {
+        const user = new User(username.value, email.value, pwd.value);
+        users.push(user);
+        localStorage.setItem('users', JSON.stringify(users));
+    }
 });
-
