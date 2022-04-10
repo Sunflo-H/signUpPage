@@ -119,20 +119,24 @@ function pwdAgainCheck() {
     }
 }
 
+function success() {
+    const user = new User(username.value, email.value, pwd.value);
+    users.push(user);
+    localStorage.setItem('users', JSON.stringify(users));
+    toast(`${username.value}님 가입을 환영합니다.`);
+}
+
 submitBtn.addEventListener('click', e => {
+    let arr = [...inputs];
+    let check = arr.find(input => input.classList.contains('non-pass'));
+
     usernameCheck();
     emailCheck();
     pwdCheck();
     pwdAgainCheck();
-    let arr = [...inputs];
-    let check = arr.find(input => input.classList.contains('non-pass'));
-    console.log(pwd.value);
-    console.log(pwdAgain.value);
+    
     if(check === undefined) {
-        const user = new User(username.value, email.value, pwd.value);
-        users.push(user);
-        localStorage.setItem('users', JSON.stringify(users));
-        toast(`${username.value}님 가입을 환영합니다.`);
+        success();
     }
 });
 
