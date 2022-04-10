@@ -1,12 +1,6 @@
 :root {
-    --pomodoro-background: #D95550;
-    --container-background: #ffffff1a;
-    --break-time-background: #457ca3;
-    --redbrown: #541c1f;
-    --black: #0000001A;
-    --white1: #FFFFFF;
-    --white2: #FFFFFFB3;
-    --gray: #aaa;
+    --background-color: #dbdbdc;
+    --button-color: #7BCEEF;
 }
 
 * {
@@ -21,6 +15,15 @@ body {
     display: none !important;
 }
 
+.pass {
+    outline: 2px solid rgb(48, 241, 48) ;
+    box-shadow: 1px 1px 3px 1px rgb(48, 241, 48), -1px -1px 3px 1px rgb(48, 241, 48);
+}
+
+.non-pass {
+    outline: 2px solid rgb(253, 107, 107);
+    box-shadow: 1px 1px 3px 1px rgb(253, 107, 107), -1px -1px 3px 1px rgb(253, 107, 107);
+}
 /* wrapper */
 .wrapper {
     width: 500px;
@@ -30,8 +33,7 @@ body {
     /* 뉴모피즘 디자인을 적용한 코드 */
     border-radius: 30px;
     background: #dbdbdc;
-    box-shadow: 20px 20px 60px #bababb,
-        -20px -20px 60px #fcfcfd;
+    box-shadow: 2px 2px 3px 3px #bababb, -2px -2px 3px 3px #fcfcfd;
 }
 
 /* header */
@@ -72,22 +74,18 @@ main label+input {
     border: none;
     border-radius: 10px;
     background: #dbdbdc;
-    box-shadow: inset 1px 1px 10px #c4c4c4, inset -1px -1px 5px #fff
-}
-
-main label+input:focus {
-    /* outline: 1px outset #ACF3AE; */
-    /* border-radius: 2rem; */
+    box-shadow: inset 1px 1px 3px 1px #c4c4c4, inset -1px -1px 3px 1px #fff;
 }
 
 main .warning-container {
-    margin-top: 4px;
+    margin-top: 5px;
     margin-left: 8px;
+    height: 14px;
 }
-main .warning {
+main .warning-container .warning {
     display: block;
     color: red;
-    font-size: 0.75rem;
+    font-size: 12px;
 }
 
 main button {
@@ -99,7 +97,7 @@ main button {
     color: #ffffffe5;
     font-weight: bold;
     cursor: pointer;
-    
+
     /* 뉴모피즘 디자인을 적용한 코드 */
     border: none;
     background: #7BCEEF;
@@ -107,6 +105,7 @@ main button {
     box-shadow: 1px 1px 3px 1px #69afcb, -1px -1px 3px 1px #8dedff;
 }
 
+/* 반응형 */
 @media screen and (max-width:750px){
     .wrapper {
         width: 375px;
