@@ -125,7 +125,9 @@ submitBtn.addEventListener('click', e => {
     pwdCheck();
     pwdAgainCheck();
     console.log(inputs);
-    let check = inputs.find(input => input.classList.contains('non-pass'));
-    console.log(check);
+    let arr = [...inputs];
+    console.log(arr);
+    let check = arr.find(input => input.classList.contains('non-pass'));
+    if(check === undefined) alert(`${username.value}님 가입되었습니다.`);
 });
 
