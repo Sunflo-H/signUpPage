@@ -3,23 +3,14 @@ const username = document.querySelector('#input-username');
 const email = document.querySelector('#input-email');
 const pwd = document.querySelector('#input-password');
 const pwdAgain = document.querySelector('#input-password-again');
-const warning = document.querySelector('.warning');
+const inputs = document.querySelectorAll('input');
 
-// 회원이 0명, 즉 로컬저장소에 아직 회원저장공간이 없는경우에는 아무값이나 넣어서 만든다.
-if(localStorage.getItem('users') === null) {
-    let arr = [];
-    localStorage.setItem('users',JSON.stringify(arr));
+const check = {
+    username : false,
+    email : false,
+    pwd : false,
+    pwdAgain : false
 }
-let users = JSON.parse(localStorage.getItem('users'));
-console.log(users);
-
-let check = {
-    id: false,
-    pwd: false,
-    pwdAgain: false,
-    nickname: false,
-    email: false
-};
 
 class User {
     constructor(username, pwd, email) {
@@ -29,37 +20,112 @@ class User {
     }
 }
 
-function outlineColorChange(tag, passState) {
-    tag.classList.add(`${passState}`);
+// 회원이 0명, 즉 로컬저장소에 아직 회원저장공간이 없는경우에는 아무값이나 넣어서 만든다.
+if (localStorage.getItem('users') === null) {
+    const user = new User('','','');
+    console.log(user);
+    localStorage.setItem('users', JSON.stringify([user]));
+}
+let users = JSON.parse(localStorage.getItem('users'));
+console.log(users);
+
+function pass(input) {
+    input.classList.add('pass');
+    input.classList.remove('non-pass');
+}
+
+function nonPass(input) {
+    input.classList.add('non-pass');
+    input.classList.remove('pass');
+}
+
+function warn(input, text) {
+    let target = input.nextElementSibling.firstElementChild;
+    target.innerText = text;
 }
 
 function usernameCheck() {
     let findUsername = users.find(user => username.value === user.username);
-    if(findUsername === undefined) 
-        outlineColorChange(username, 'pass');
-    else 
-        outlineColorChange(username, 'non-pass');
+    
+    if (findUsername === undefined && username.value !== '') {
+        pass(username);
+        warn(username,'');
+    }
+    else if (username.value === '') { // 공백 경고
+        nonPass(username);
+        warn(username, "Username must not be empty");
+    }
+    else { // 중복 경고
+        nonPass(username); 
+        warn(username, "Username already exists");
+    }
 }
 
 function emailCheck() {
-    var regex=/([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-    return (email != '' && email != undefined && regex.test(email)); 
+    if(emailValid(email.value)) {
+        pass(email);
+        warn(email,'');
+    } 
+    else {
+        nonPass(email);
+        warn(email, "Email is not valid");
+    }
+}
+
+function emailValid(email) {
+    var regex = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    return (email != '' && email != undefined && regex.test(email));
 }
 
 function pwdCheck() {
-    if(pwd.value === pwdAgain.value) {
-        outlineColorChange(pwd, 'pass');
-        outlineColorChange(pwdAgain, 'pass');
-    } else {
-        outlineColorChange(pwd, 'non-pass');
-        outlineColorChange(pwdAgain, 'non-pass');
-    }
+    var pw = pwd.value;
+    var num = pw.search(/[0-9]/g);
+    var eng = pw.search(/[a-z]/ig);
+    var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
     
+    if(pw.length < 8 || pw.length > 20){ // 길이 체크
+        nonPass(pwd);   
+        warn(pwd,"Please enter 8 to 20 digits");
+        return false;
+    }
+    else if(pw.search(/\s/) != -1){ // 공백 체크
+        nonPass(pwd);   
+        warn(pwd,"Enter the password without spaces");
+        return false;
+    }
+    else if(num < 0 || eng < 0 || spe < 0 ){ // 문자 형식 체크
+        nonPass(pwd);   
+        warn(pwd,"Enter a mixture of English, numbers, and special characters");
+        return false;
+    }
+    else {
+        pass(pwd);
+        warn(pwd, '');
+        return true;
+    }
+}
+function pwdAgainCheck() {
+    if (pwd.value === pwdAgain.value && pwdAgain.value !== '') {
+        pass(pwdAgain);
+        warn(pwdAgain,'');
+    } 
+    else if(pwdAgain.value === '') {
+        nonPass(pwdAgain);
+        warn(pwdAgain, "Confirm password must not be empty");
+    }
+    else {
+        nonPass(pwdAgain);
+        warn(pwdAgain,"Password doesn't match");
+    }
 }
 
 submitBtn.addEventListener('click', e => {
     usernameCheck();
     emailCheck();
     pwdCheck();
+    pwdAgainCheck();
+    console.log(inputs);
+    let check = inputs.find(input => input.classList.contains('non-pass'));
+    console.log(check);
 });
 

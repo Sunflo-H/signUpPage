@@ -17,12 +17,12 @@ body {
 
 .pass {
     outline: 2px solid rgb(48, 241, 48) ;
-    box-shadow: 1px 1px 3px 1px rgb(48, 241, 48), -1px -1px 3px 1px rgb(48, 241, 48);
+    /* box-shadow: 1px 1px 3px 1px rgb(48, 241, 48), -1px -1px 3px 1px rgb(48, 241, 48); */
 }
 
 .non-pass {
     outline: 2px solid rgb(253, 107, 107);
-    box-shadow: 1px 1px 3px 1px rgb(253, 107, 107), -1px -1px 3px 1px rgb(253, 107, 107);
+    /* box-shadow: 1px 1px 3px 1px rgb(253, 107, 107), -1px -1px 3px 1px rgb(253, 107, 107); */
 }
 /* wrapper */
 .wrapper {
