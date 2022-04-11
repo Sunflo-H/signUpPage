@@ -11,4 +11,5 @@
 #### 2-2. 유효성 검사
 - 제출 버튼을 클릭하면 입력된 정보를 모두 확인하여 Pass(초록)와 Non-Pass(빨강)를 보여줍니다.
 - 모두 Pass면 toast를 띄워 가입에 성공했음을 알립니다.
+- 
 ![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/70611956/162659102-222b7305-0081-4b95-9952-943b06733305.gif)
